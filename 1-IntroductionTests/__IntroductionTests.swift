@@ -11,29 +11,37 @@ import XCTest
 class __IntroductionTests: XCTestCase {
     
     var fieldValidator: FieldValidator!
-
+    
     override func setUpWithError() throws {
-        
+        fieldValidator = FieldValidatorImpl()
     }
-
+    
     override func tearDownWithError() throws {
-        
+        fieldValidator = nil
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testValidatorCorrectWithEmptyValues() throws {
+        
+        //Given
+        let loginTF = UITextField()
+        let passwordTF = UITextField()
+        var validateResult: Bool
+        let expectedResult = false
+        
+        //When
+        validateResult = fieldValidator.validateLoginTextField(loginTF: loginTF, passwordTF: passwordTF)
+        
+        //Then
+        XCTAssertEqual(expectedResult, validateResult)
+        
     }
-
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
 }
