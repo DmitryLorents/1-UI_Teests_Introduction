@@ -15,6 +15,7 @@
 		04D172F729A3A8AD0058FE38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D172F629A3A8AD0058FE38 /* Assets.xcassets */; };
 		04D172FA29A3A8AD0058FE38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D172F829A3A8AD0058FE38 /* LaunchScreen.storyboard */; };
 		04D1730229A3ABEB0058FE38 /* ModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1730129A3ABEB0058FE38 /* ModulesFactory.swift */; };
+		04D1730429A3B02D0058FE38 /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1730329A3B02D0058FE38 /* FieldValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		04D172F929A3A8AD0058FE38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04D172FB29A3A8AD0058FE38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D1730129A3ABEB0058FE38 /* ModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesFactory.swift; sourceTree = "<group>"; };
+		04D1730329A3B02D0058FE38 /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				04D172EA29A3A8A80058FE38 /* AppDelegate.swift */,
 				04D172EC29A3A8A80058FE38 /* SceneDelegate.swift */,
 				04D172EE29A3A8A80058FE38 /* ViewController.swift */,
+				04D1730329A3B02D0058FE38 /* FieldValidator.swift */,
 				04D1730129A3ABEB0058FE38 /* ModulesFactory.swift */,
 				04D172F029A3A8A80058FE38 /* Main.storyboard */,
 				04D172F629A3A8AD0058FE38 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				04D172EF29A3A8A80058FE38 /* ViewController.swift in Sources */,
 				04D1730229A3ABEB0058FE38 /* ModulesFactory.swift in Sources */,
 				04D172EB29A3A8A80058FE38 /* AppDelegate.swift in Sources */,
+				04D1730429A3B02D0058FE38 /* FieldValidator.swift in Sources */,
 				04D172ED29A3A8A80058FE38 /* SceneDelegate.swift in Sources */,
 				04D172F529A3A8A80058FE38 /* __Introduction.xcdatamodeld in Sources */,
 			);
