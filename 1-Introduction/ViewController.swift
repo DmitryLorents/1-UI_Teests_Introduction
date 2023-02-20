@@ -11,6 +11,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
+    var  modulesFactory = ModulesFactoryImpl()
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTF.delegate = self
@@ -27,11 +29,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
             passwordTF.becomeFirstResponder()
         case passwordTF:
             passwordTF.resignFirstResponder()
-            print("Done pressed")
+            toNextScreen()
         default: break
         }
         return true
     }
 
+    
+    func toNextScreen() {
+        
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {return}
+        let screen = modulesFactory.getModule(by: .main)
+        sceneDelegate.window?.rootViewController = screen
+        sceneDelegate.window?.makeKeyAndVisible()
+                
+        screen.modalPresentationStyle = .fullScreen
+        present(screen, animated: true)
+        
+    }
 }
 

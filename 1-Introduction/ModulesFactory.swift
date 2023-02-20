@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 protocol ModulesFactory {
-    
+    func getModule(by type: Modules) -> UIViewController
 }
 
 enum Modules {
