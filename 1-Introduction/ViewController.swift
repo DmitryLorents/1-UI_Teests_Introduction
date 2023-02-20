@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTF: UITextField!
     
     var  modulesFactory = ModulesFactoryImpl()
+    var fieldValidator = FieldValidatorImpl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTF.delegate = self
@@ -29,6 +31,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             passwordTF.becomeFirstResponder()
         case passwordTF:
             passwordTF.resignFirstResponder()
+            guard fieldValidator.validateLoginTextField(loginTF: loginTF, passwordTF: passwordTF) else {
+                let alert = UIAlertController(title: "Warning", message: "Invalid fields", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true)
+                return false}
             toNextScreen()
         default: break
         }
