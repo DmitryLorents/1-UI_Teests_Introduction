@@ -20,8 +20,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginTF.delegate = self
         passwordTF.delegate = self
         
-        loginTF.returnKeyType = .continue
+        loginTF.returnKeyType = .next
         passwordTF.returnKeyType = .done
+        
+        loginTF.accessibilityIdentifier =  "loginTF"
+        passwordTF.accessibilityIdentifier = "passwordTF"
         
     }
 //MARK: - UITextFieldDelegate
@@ -33,6 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             passwordTF.resignFirstResponder()
             guard fieldValidator.validateLoginTextField(loginTF: loginTF, passwordTF: passwordTF) else {
                 let alert = UIAlertController(title: "Warning", message: "Invalid fields", preferredStyle: .alert)
+                alert.accessibilityLabel = "alert"
                 let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alert.addAction(okAction)
                 present(alert, animated: true)
