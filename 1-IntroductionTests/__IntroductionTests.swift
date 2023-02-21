@@ -61,14 +61,24 @@ class __IntroductionTests: XCTestCase {
         loginTF.text = "login"
         let passwordTF = UITextField()
         passwordTF.text = "123"
-        var validateResult: Bool
+        var validateResult: Bool?
         let expectedResult = false
+        let validatorExpectation = expectation(description: "Expectation in" + #function)
         
         //When
-        validateResult = fieldValidator.
+        fieldValidator.asyncValidateLoginTextField(loginTF: loginTF, passwordTF: passwordTF, completion: { isValid in
+            validateResult = isValid
+            validatorExpectation.fulfill()
+        })
         
         //Then
-        XCTAssertNotEqual(expectedResult, validateResult)
+        waitForExpectations(timeout: 2.0) { error in
+            if error != nil {
+                XCTFail()
+            }
+            XCTAssertNotEqual(expectedResult, validateResult)
+        }
+        //XCTAssertEqual(expectedResult, validateResult)
         
         
     }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol FieldValidator {
     func validateLoginTextField( loginTF: UITextField,  passwordTF: UITextField)  -> Bool
+    func asyncValidateLoginTextField( loginTF: UITextField,  passwordTF: UITextField,  completion: @escaping (Bool) -> Void)
 }
 
 class FieldValidatorImpl: FieldValidator {
@@ -22,12 +23,12 @@ class FieldValidatorImpl: FieldValidator {
     }
     
     func asyncValidateLoginTextField( loginTF: UITextField,  passwordTF: UITextField,  completion: @escaping (Bool) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            
-            let result = loginTF.hasText && passwordTF.hasText && passwordTF.text == "123"
-            completion(result)
-        }
-        
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1.5, execute: {
+            DispatchQueue.main.async {
+                let result = loginTF.hasText && passwordTF.hasText && passwordTF.text == "123"
+                completion(result)
+            }
+        })
     }
     
 }
