@@ -37,6 +37,42 @@ class __IntroductionTests: XCTestCase {
         
     }
     
+    func testValidatorCorrectWithValue() throws {
+        
+        //Given
+        let loginTF = UITextField()
+        loginTF.text = "login"
+        let passwordTF = UITextField()
+        passwordTF.text = "123"
+        var validateResult: Bool
+        let expectedResult = false
+        
+        //When
+        validateResult = fieldValidator.validateLoginTextField(loginTF: loginTF, passwordTF: passwordTF)
+        
+        //Then
+        XCTAssertNotEqual(expectedResult, validateResult)
+        
+    }
+    
+    func testAsyncValidatorCorrectWithValue() throws {
+        //Given
+        let loginTF = UITextField()
+        loginTF.text = "login"
+        let passwordTF = UITextField()
+        passwordTF.text = "123"
+        var validateResult: Bool
+        let expectedResult = false
+        
+        //When
+        validateResult = fieldValidator.
+        
+        //Then
+        XCTAssertNotEqual(expectedResult, validateResult)
+        
+        
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
